@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <title>Popup for Proxy API Test</title>
+  <link href="./popup.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+  <h1>Akamai Staging Proxy Extension</h1>
+
+  <p><a href="https://github.com/akhiljay/Akamai-staging-proxy" target="_blank">Installation & User Guide </a> | <a href="https://forms.gle/jzrc4cu4BwKgwnWD9" target="_blank" >Submit Feedback</a> | version 1.0 | <a href="https://twitter.com/akhiljp_dev" target="_blank"> Twitter</a> | </p>
+  <div role="main">
+    <form id="proxyForm">
+      <fieldset id="system">
+        <legend>System Settings</legend>
+        <input type="radio" name="proxyType" id="proxyTypeSystem" value="system">
+        <label for="proxyTypeSystem">Use the <em>system's proxy settings</em>.</label>
+      </fieldset>
+ 
+      <fieldset id="fixed_servers">
+        <legend>Manual Proxy</legend>
+        <input type="radio" name="proxyType" id="proxyTypeManual" value="manual">
+        <label for="proxyTypeManual">Route requests to Akamai Staging Proxy <em></em>.</label>
+        <section>
+          
+          <fieldset disabled>
+            <legend>Proxy</legend>
+            <label for="proxyHostHttp">Address</label>
+            <select id="proxySchemeHttp" name="proxySchemeHttp">
+              <option selected value="http">http://</option>
+              <option value="https">https://</option>
+              <option value="socks4">socks4://</option>
+              <option value="socks5">socks5://</option>
+            </select>
+            <input type="text" name="proxyHostHttp" id="proxyHostHttp" value="127.0.0.1">
+
+            <label for="proxyPortHttp">Port</label>
+            <input type="text" name="proxyPortHttp" id="proxyPortHttp" class="port" value="5050">
+
+            <input type="checkbox" name="singleProxyForEverything" id="singleProxyForEverything" checked >
+            <label for="singleProxyForEverything">Use the same proxy server for all protocols</label>
+          </fieldset>
+
+          <fieldset>
+              <p>Enter multiple hostname:staging-hostname combination below separated by a comma</p>
+              <p><em>For example:</em></p>
+              <p>1. For single hostname & staging hostname combination enter : <em>www.foo.com:www.foo.com.edgekey-staging.net</em></p>
+              <p>2. For multiple hostnames & staging hostnames combination enter : <em>www.foo.com:www.foo.com.edgekey-staging.net<b>,</b>static.foo.com:static.foo.edgekey-staging.net</em></p>
+            <label for="hostList">Enter your hostname & staging hostname list here:</label>
+            <textarea id="hostList" name="hostList" placeholder="www.akamaidevops.com:www.akamaidevops.com.edgekey-staging.net,developer.akamai.com:san-developer.akamai.com.edgekey-staging.net"></textarea>
+          </fieldset>
+
+ 
+        </section>
+        <section>
+          <fieldset>
+            <label for="bypassList">Enter hostnames that you wish not to send to the proxy server:</label>
+            <textarea id="bypassList" name="bypassList" placeholder="<local>,192.168.1.1/16, .example.com"></textarea>
+          </fieldset>
+        </section>
+      </fieldset>
+      <input type="submit" value="Save proxy settings">
+      <button value="incognito">Configure incognito window settings.</button>
+    </form>
+  </div>
+
+  <script src="./proxy_form_controller.js"></script>
+  <script src="./popup.js"></script>
+</body>
+</html>
