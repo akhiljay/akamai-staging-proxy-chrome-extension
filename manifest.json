@@ -1,6 +1,6 @@
 {
   "name": "Akamai Staging Proxy Extension",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Chrome extension that allows you to connect to Akamai staging environment via a node proxy fronting Akamai staging network",
   "default_locale": "en",
   "browser_action": {

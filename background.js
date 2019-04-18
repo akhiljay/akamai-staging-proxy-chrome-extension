@@ -9,6 +9,13 @@
  * @author Mike West <mkwst@google.com>
  */
 
+ // restart app when new update is available 
+chrome.runtime.onUpdateAvailable.addListener(function(details) {
+  console.log("updating to version " + details.version);
+  chrome.runtime.reload();
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
   var errorHandler = new ProxyErrorHandler();
 
@@ -21,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {'value': persistedSettings.regular});
   }
 });
+
 
 //listener for response details
 chrome.runtime.onMessage.addListener(
