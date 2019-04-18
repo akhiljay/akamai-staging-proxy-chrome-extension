@@ -9,6 +9,10 @@
   <h1>Akamai Staging Proxy Extension</h1>
 
   <p><a href="https://github.com/akhiljay/Akamai-staging-proxy" target="_blank">Installation & User Guide </a> | <a href="https://forms.gle/jzrc4cu4BwKgwnWD9" target="_blank" >Submit Feedback</a> | version 1.0 | <a href="https://twitter.com/akhiljp_dev" target="_blank"> Twitter</a> | </p>
+  <div data-component="status">
+    <div class="info">Before configuring the extension please follow the steps below:<br/> Step 1: Install the proxy "<code>npm install -g akamai-staging-proxy</code>" <br /> Step 2: Run the proxy"<code>akamai-staging-proxy</code>"</div>
+</div>
+
   <div role="main">
     <form id="proxyForm">
       <fieldset id="system">
@@ -42,12 +46,12 @@
           </fieldset>
 
           <fieldset>
-              <p>Enter multiple hostname:staging-hostname combination below separated by a comma</p>
+              <p>Enter multiple hostname staging-hostname combination below separated by a comma</p>
               <p><em>For example:</em></p>
-              <p>1. For single hostname & staging hostname combination enter : <em>www.foo.com:www.foo.com.edgekey-staging.net</em></p>
-              <p>2. For multiple hostnames & staging hostnames combination enter : <em>www.foo.com:www.foo.com.edgekey-staging.net<b>,</b>static.foo.com:static.foo.edgekey-staging.net</em></p>
+              <p>1. For single hostname & staging hostname combination enter : <em>www.foo.com=www.foo.com.edgekey-staging.net</em></p>
+              <p>2. For multiple hostnames & staging hostnames combination enter : <em>www.foo.com=127.0.0.1:9550<b>,</b>static.foo.com:static.foo.edgekey-staging.net</em></p>
             <label for="hostList">Enter your hostname & staging hostname list here:</label>
-            <textarea id="hostList" name="hostList" placeholder="www.akamaidevops.com:www.akamaidevops.com.edgekey-staging.net,developer.akamai.com:san-developer.akamai.com.edgekey-staging.net"></textarea>
+            <textarea id="hostList" name="hostList" placeholder="www.akamaidevops.com=www.akamaidevops.com.edgekey-staging.net,developer.akamai.com=127.0.0.1:9550"></textarea>
           </fieldset>
 
  

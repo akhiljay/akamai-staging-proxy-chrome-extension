@@ -12,6 +12,7 @@ h1 {
 }
 p {
   font-size:12px;
+  margin-block-start: 0em;
 }
 
 

@@ -537,14 +537,26 @@ ProxyFormController.prototype = {
       chrome.runtime.sendMessage({type: "gaq", target: "Manual proxy settings", behavior: "enabled"});
       for (var i in arr_hostList){
         //console.log(i);
-        arr_apihost[i] = arr_hostList[i].split(':');
+        arr_apihost[i] = arr_hostList[i].split('=');
         //console.log(arr_apihost);
         }
+
         //console.log(JSON.stringify(arr_apihost));
        var JSONarr =[];
+       var arr_apihostport = [];
+
       for (var j in arr_hostList){
-        JSONarr[j] = '{"apihost":"' + arr_apihost[j][0] + '","apiserver":"' + arr_apihost[j][1] + '"}';
-      //console.log(JSONarr[j]);
+        arr_apihostport[j] = arr_apihost[j][1].split(':');
+        console.log (arr_apihostport[j][0]);
+        console.log (arr_apihostport[j][1]);
+        if (arr_apihostport[j][1] != null){
+          JSONarr[j] = '{"apihost":"' + arr_apihost[j][0] + '","apiserver":"' + arr_apihostport[j][0] + '","apiport":"'+arr_apihostport[j][1]+'"}';
+        }
+        else {
+          JSONarr[j] = '{"apihost":"' + arr_apihost[j][0] + '","apiserver":"' + arr_apihost[j][1] + '"}';
+          //console.log(JSONarr[j]);
+        }
+      
        }
     
     //console.log(JSON.stringify(JSONarr));
